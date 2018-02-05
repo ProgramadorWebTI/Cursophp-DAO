@@ -13,7 +13,7 @@
 		{
 			foreach ($parameters as $key => $value) 
 			{
-				$statment=setParam($key, $value);
+				$statment=setParam($statment, $key, $value);
 			}
 		}
 
