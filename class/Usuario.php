@@ -45,8 +45,12 @@ class Usuario
 
 	public function loadById($id)
 	{
-		$slq = new Sql();
-		$results = $sql -> select("SELECT * FROM tb_usuarios WHERE  idusuario = :ID", array(":ID"=>$id));
+		
+		$sql = new Sql();
+	
+		$results = $sql->select("SELECT * FROM tb_usuarios WHERE idusuario = :ID", array(
+			":ID"=>$id
+		));
 
 		if(count($results) > 0)
 		{
