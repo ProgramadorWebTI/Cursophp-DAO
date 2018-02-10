@@ -21,8 +21,14 @@ require_once("config.php");
 //echo json_encode($search);
 
 //carrega um usuário usando o login e a senha;
-$verifica = new Usuario();
-$verifica->login("root", "123");
+//$verifica = new Usuario();
+//$verifica->login("root", "123");
+//echo $verifica;
 
-echo $verifica;
+$aluno = new Usuario();
+$aluno -> setDeslogin("aluno");
+$aluno -> setDessenha("1234");
+$aluno -> insert();
+echo $aluno;
+
 ?>
