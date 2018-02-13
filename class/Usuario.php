@@ -124,6 +124,22 @@ class Usuario
 		));
 	}
 
+	public function delete()
+	{
+
+		$sql = new Sql();
+
+		$sql -> query("DELETE FROM tb_usuarios WHERE idusuario =:ID", array(
+			':ID'=> $this->getIdusuario()
+		));
+
+		$this->setIdusuario("NULL");
+		$this->setDessenha("NULL");
+		$this->setDeslogin("NULL");
+		$this->setDtcadastro(NEW DateTime());
+
+	}
+
 	public function insert()
 	{
 		$sql = new Sql();
