@@ -28,7 +28,7 @@
 		{
 			$stmt = $this->con->prepare($rawQuery);
 
-			$this->setParams($stmt, $parameterss);
+			$this->setParams($stmt, $params);
 
 			$stmt->execute();
 

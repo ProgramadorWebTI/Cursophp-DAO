@@ -110,6 +110,20 @@ class Usuario
 		$this->setDtcadastro(new DateTime($data['dtcadastro']));
 	}
 
+	public function update($login, $password)
+	{
+		$this-> setDeslogin($login);
+		$this-> setDessenha($password);
+
+		$sql = new Sql();
+
+		$sql -> query("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD where idusuario =:ID", array(
+			':LOGIN'=> $this->getDeslogin(),
+			':PASSWORD'=> $this->getDessenha(),
+			':ID'=> $this->getIdusuario()
+		));
+	}
+
 	public function insert()
 	{
 		$sql = new Sql();
@@ -117,6 +131,7 @@ class Usuario
 		$results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(
 			':LOGIN'=>$this->getDeslogin(), 
 			':PASSWORD'=>$this->getDessenha()
+
 		));
 
 		if(count($results) > 0)

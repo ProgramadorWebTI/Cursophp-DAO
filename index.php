@@ -25,10 +25,16 @@ require_once("config.php");
 //$verifica->login("root", "123");
 //echo $verifica;
 
-$aluno = new Usuario();
-$aluno -> setDeslogin("aluno");
-$aluno -> setDessenha("1234");
-$aluno -> insert();
-echo $aluno;
+//Criando um novo usuário
+//$aluno = new Usuario();
+//$aluno -> setDeslogin("aluno");
+//$aluno -> setDessenha("1234");
+//$aluno -> insert();
+//echo $aluno;
+
+$usuario = new Usuario();
+$usuario->loadById(8);
+$usuario->update("Teste", "54654");
+echo $usuario;
 
 ?>
